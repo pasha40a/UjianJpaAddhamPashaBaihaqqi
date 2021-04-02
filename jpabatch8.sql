@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Apr 2021 pada 12.13
+-- Waktu pembuatan: 02 Apr 2021 pada 20.00
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 5.6.40
 
@@ -25,26 +25,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `plot_mata_kuliah`
+-- Struktur dari tabel `nilai`
 --
 
-CREATE TABLE `plot_mata_kuliah` (
-  `id_matakuliah` bigint(20) NOT NULL,
-  `nim` bigint(20) NOT NULL,
-  `id_dosen` bigint(20) NOT NULL
+CREATE TABLE `nilai` (
+  `id_nilai` bigint(20) NOT NULL,
+  `nilai` int(11) NOT NULL,
+  `id_soal` bigint(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `nilai`
+--
+
+INSERT INTO `nilai` (`id_nilai`, `nilai`, `id_soal`) VALUES
+(1, 80, 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `plot_mata_kuliah`
+-- Indeks untuk tabel `nilai`
 --
-ALTER TABLE `plot_mata_kuliah`
-  ADD KEY `FK3ahsfjp1ps9uxj3ypcf2njgfv` (`nim`),
-  ADD KEY `FKmaqmb2aopcspvrsomkc1iiid8` (`id_matakuliah`),
-  ADD KEY `FKqftn4db8rdya7afgu757rscge` (`id_dosen`);
+ALTER TABLE `nilai`
+  ADD PRIMARY KEY (`id_nilai`),
+  ADD KEY `FKspkf6m78j2lovkw7ctekx9rxu` (`id_soal`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `nilai`
+--
+ALTER TABLE `nilai`
+  MODIFY `id_nilai` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

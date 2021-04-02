@@ -28,15 +28,18 @@ import lombok.NoArgsConstructor;
 public class Mahasiswa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="NIM")
 	private long nim;
 	
+	@Column(name="Password")
 	private String password;
 	@Column (name="Jenis_Kelamin")
 	private String jenkel;
 	private String namamahasiswa;
 	
-	@ManyToMany(mappedBy = "lstmahasiswa")
-	List<MataKuliah>lstmatakuliah = new ArrayList<MataKuliah>();
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="nim", referencedColumnName = "nim")
+	List<PlotMatKul>plotmatkul = new ArrayList<PlotMatKul>();
 
 	
 

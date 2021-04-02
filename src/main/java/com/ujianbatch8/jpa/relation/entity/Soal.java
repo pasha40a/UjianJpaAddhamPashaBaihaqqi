@@ -11,9 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,5 +33,6 @@ public class Soal {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="id_soal", referencedColumnName = "id_soal")
 	private List<Pertanyaan>pertanyaan = new ArrayList<Pertanyaan>();
+	
 
 }

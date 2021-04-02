@@ -9,10 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,10 +21,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 @Entity
-@Table(name ="plotmatkul")
-public class PlotMatKul{
+@Table(name ="nilai")
+public class Nilai {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_pmk;
+	private long id_nilai;
+	private int nilai;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="id_soal", referencedColumnName = "id_nilai")
+	private List<Soal>soal = new ArrayList<Soal>();
+
 }

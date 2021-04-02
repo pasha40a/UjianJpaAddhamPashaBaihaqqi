@@ -34,20 +34,9 @@ public class MataKuliah {
 	private String nama_matakuliah;
 	
 
-	@ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-        name = "Plot_Mata_Kuliah",
-        joinColumns=@JoinColumn(name="id_matakuliah", referencedColumnName="id_matakuliah"),
-        inverseJoinColumns=@JoinColumn(name="id_dosen", referencedColumnName="id_dosen"))
-	List<Dosen> lstdosen = new ArrayList<Dosen>();
-
-    @ManyToMany
-    @JoinTable(
-        name = "Plot_Mata_Kuliah",
-        joinColumns=@JoinColumn(name="id_matakuliah", referencedColumnName="id_matakuliah"),
-        inverseJoinColumns=@JoinColumn(name="nim", referencedColumnName="nim"))
-    List<Mahasiswa> lstmahasiswa = new ArrayList<Mahasiswa>();
-	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="id_matakuliah", referencedColumnName = "id_matakuliah")
+	private List<PlotMatKul>plotmatkul = new ArrayList<PlotMatKul>();
 
 
 
